@@ -6,13 +6,28 @@ Os docx também serão salvos em PDF.
 
 Projeto desenvolvido no Jupyter Notebook
 
-**Formatando Fontes**
-
-    def formatar_run(run):
-      run.font.name = 'Arial'
-      run.font.size = Pt(12)
-      r = run._element
-      r.rPr.rFonts.set(qn('w:eastAsia'), 'Arial')
+Abaixo são os marcadores que inserir nos campos onde as informações pertinentes dos clientes são inseridas.
+Nome: {{nome_cliente}}
+CPF: {{cpf}}
+RG: {{rg}}
+CNPJ: {{cnpj}}
+Data de Nascimento: {{data_nascimento}}
+Endereço: {{endereco_completo}}
+Valor do Projeto: {{valor_projeto}}
+Potência do Projeto: {{potencia_kwp}}
+Data da Assinatura: {{data_assinatura}}
+Modulos: {{MODULOS}}    
+Quantidade de modulos: {{QUANT_MODULOS}}
+Inversor: {{INVERSOR}}  
+Quantidade Inversores: {{QUANT_INVERSOR}}
+Valor do projeto: {{valor_projeto}}
+Potência: {{potencia_kwp}}
+Forma de Pagamento: {{forma_pagamento}}
+Data de Assinatura: {{data_assinatura}}
+Estado Civil: {{est_civil}}  
+Profissão: {{profissao}}
+Email: {{email}}
+Contato: {{contato}}
 
 **Importando bibliotecas** 
 
@@ -27,6 +42,15 @@ Projeto desenvolvido no Jupyter Notebook
     from docx2pdf import convert 
     import pandas as pd 
     from openpyxl import load_workbook 
+
+**Formatando Fontes**
+
+    def formatar_run(run):
+      run.font.name = 'Arial'
+      run.font.size = Pt(12)
+      r = run._element
+      r.rPr.rFonts.set(qn('w:eastAsia'), 'Arial')
+
 
 **Percorrendo todos os parafgrafos dos documentos**
 
@@ -78,7 +102,6 @@ Projeto desenvolvido no Jupyter Notebook
   **Dicionarios com as informações do clientes**
 
     dados_cliente = {
-        ##dicinario contrato comercial
         "nome_cliente": "XXXXXXXXX",
         "cpf": "XXXXXXXXX",
         "rg": "XXXXXXXXX",
