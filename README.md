@@ -7,27 +7,28 @@ Os docx também serão salvos em PDF.
 Projeto desenvolvido no Jupyter Notebook
 
 Abaixo são os marcadores que inserir nos campos onde as informações pertinentes dos clientes são inseridas.
-Nome: {{nome_cliente}}
-CPF: {{cpf}}
-RG: {{rg}}
-CNPJ: {{cnpj}}
-Data de Nascimento: {{data_nascimento}}
-Endereço: {{endereco_completo}}
-Valor do Projeto: {{valor_projeto}}
-Potência do Projeto: {{potencia_kwp}}
-Data da Assinatura: {{data_assinatura}}
-Modulos: {{MODULOS}}    
-Quantidade de modulos: {{QUANT_MODULOS}}
-Inversor: {{INVERSOR}}  
-Quantidade Inversores: {{QUANT_INVERSOR}}
-Valor do projeto: {{valor_projeto}}
-Potência: {{potencia_kwp}}
-Forma de Pagamento: {{forma_pagamento}}
-Data de Assinatura: {{data_assinatura}}
-Estado Civil: {{est_civil}}  
-Profissão: {{profissao}}
-Email: {{email}}
-Contato: {{contato}}
+
+        Nome: {{nome_cliente}}
+        CPF: {{cpf}}
+        RG: {{rg}}
+        CNPJ: {{cnpj}}
+        Data de Nascimento: {{data_nascimento}}
+        Endereço: {{endereco_completo}}
+        Valor do Projeto: {{valor_projeto}}
+        Potência do Projeto: {{potencia_kwp}}
+        Data da Assinatura: {{data_assinatura}}
+        Modulos: {{MODULOS}}    
+        Quantidade de modulos: {{QUANT_MODULOS}}
+        Inversor: {{INVERSOR}}  
+        Quantidade Inversores: {{QUANT_INVERSOR}}
+        Valor do projeto: {{valor_projeto}}
+        Potência: {{potencia_kwp}}
+        Forma de Pagamento: {{forma_pagamento}}
+        Data de Assinatura: {{data_assinatura}}
+        Estado Civil: {{est_civil}}  
+        Profissão: {{profissao}}
+        Email: {{email}}
+        Contato: {{contato}}
 
 **Importando bibliotecas** 
 
