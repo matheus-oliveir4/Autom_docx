@@ -78,32 +78,65 @@ Projeto desenvolvido no Jupyter Notebook
 
     dados_cliente = {
         ##dicinario contrato comercial
-        "nome_cliente": "FRANCISCO LUCAS ALMEIDA DOS ANJOS",
-        "cpf": "074.470.553-36",
-        "rg": "20075075649",
-        "endereco_completo": "Setor Quixoa, 0 - Barro alto, Iguatu, CE - CEP: 63500-005",
-        "MODULOS": "LEAPTON SOLAR LP182-M-66-NH-570W",
-        "QUANT_MODULOS": "13",
-        "INVERSOR": "SOLPLANET ASW7300-S",
-        "QUANT_INVERSOR": "1",
-        "valor_projeto": "R$ 20.000,00",
-        "potencia_kwp": "7,41 kWp",
-        "forma_pagamento": "Pagamento 100% Bradesco",
+        "nome_cliente": "XXXXXXXXX",
+        "cpf": "XXXXXXXXX",
+        "rg": "XXXXXXXXX",
+        "endereco_completo": "XXXXXXXXX",
+        "MODULOS": "XXXXXXXXX",
+        "QUANT_MODULOS": "XXXXXXXXX",
+        "INVERSOR": "XXXXXXXXX",
+        "QUANT_INVERSOR": "XXXXXXXXX",
+        "valor_projeto": "R$ XXXXXXXXX",
+        "potencia_kwp": "XXXXXXXXX",
+        "forma_pagamento": "XXXXXXXXX",
         "data_assinatura": datetime.date.today().strftime("%d/%m/%Y"),
         ##Dicionario procuração
-        "est_civil": "Casado",
-        "profissao":"Empresario",
-        "email":"lucas96almeida@icloud.com",
-        "contato":"88 98130-3357",
-        "end.rua":"Setor Quixoa, 0",
-        "end.numero":"0",
-        "end.bairro":"Barro alto",
-        "end.cidade":"Iguatu, CE",
-        "end.cep":"CEP: 63500-005",
+        "est_civil": "XXXXXXXXX",
+        "profissao":"XXXXXXXXX",
+        "email":"XXXXXXXXX",
+        "contato":"XXXXXXXXX",
+        "end.rua":"XXXXXXXXX",
+        "end.numero":"XXXXXXXXX",
+        "end.bairro":"XXXXXXXXX",
+        "end.cidade":"XXXXXXXXX",
+        "end.cep":"CEP: XXXXXXXXX",
         ##Dicionario cadUni
-        "vendedor":"Ildernando",
-        "cnpj":" ",
-        "data_nascimento":"14/05/1996"
+        "vendedor":"XXXXXXXXX",
+        "cnpj":" XXXXXXXXX",
+        "data_nascimento":"XXXXXXXXX"
     }
 
+**Salvando Docx Contrato**
+
+    nome_arquivo = f"CONTRATO COMERCIAL - {limpar_nome(dados_cliente['nome_cliente'])} + MINUTA TERMO DE CIENCIA E IMAGEM.docx"
+    doc_modelo = Document("Contrato_Comercial.docx")
+    doc_preenchido = substituir_campos(doc_modelo, dados_cliente)
+    doc_preenchido.save(nome_arquivo)
+    print(f"Contrato salvo como: {nome_arquivo}")
+
+**Salvando Docx Procuração**
+
+    doc_modelo_2 = Document("Modelo_Proc_PF.docx")
+
+    # Substitui os campos
+    doc_preenchido_2 = substituir_campos(doc_modelo_2, dados_cliente)
+
+    # Nome do arquivo baseado no nome do novo cliente
+    nome_arquivo_2 = f"Procuração Pessoa Fisica - {limpar_nome(dados_cliente['nome_cliente'])}.docx"
+    doc_preenchido_2.save(nome_arquivo_2)
+
+**Gerando PDF Contrato e Procuração**
+
+    ##PDF Contrato
+    convert(nome_arquivo)
+    nome_pdf = nome_arquivo.replace(".docx", ".pdf")
+    print(f"PDF também salvo como: {nome_pdf}")
+
+    #PDF Procuração
+    convert(nome_arquivo_2)
+    print(f"Contrato salvo como: {nome_arquivo_2}")
+    print(f"PDF salvo como: {nome_arquivo_2.replace('.docx', '.pdf')}")
+
+**Salvando Planilha de cadastro unificado**
     
+    substituir_em_planilha("Cadastro_Unificado.xlsx", dados_cliente, dados_cliente["nome_cliente"])    
